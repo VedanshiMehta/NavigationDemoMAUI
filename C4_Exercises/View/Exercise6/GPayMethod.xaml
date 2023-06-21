@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             x:Class="C4_Exercises.View.Exercise6.GPayMethod"
+             BackgroundColor="#9273D4">
+    <ContentPage.BindingContext>
+        <viewModel:GPayMethodViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="20"
+                     >
+            <VerticalStackLayout HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="CenterAndExpand"
+                                 Spacing="10">
+            <HorizontalStackLayout Spacing="5"
+                                   HorizontalOptions="CenterAndExpand">
+
+                <Image x:Name="rupeesIcon"
+                       HeightRequest="15"
+                       WidthRequest="15"
+                       Source="rupee.png"/>
+                <Label x:Name="amountPaid"
+                   Text="{Binding PayAmount}"
+                   FontAttributes="Bold"
+                   FontSize="28"
+                   HorizontalTextAlignment="Center"
+                   TextColor="White"/>
+                
+            </HorizontalStackLayout>
+            <Label x:Name="amountPaidToName"
+                   Text="{Binding PaidtoName}"
+                   FontSize="18"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
+            </VerticalStackLayout>
+            <Frame CornerRadius="20"
+                   Padding="25"
+                   VerticalOptions="End">
+                <StackLayout Spacing="10">
+                    <Entry x:Name="enterPayee"
+                       TextColor="Black"
+                       FontSize="16"
+                       Placeholder="Enter name of payee"
+                           Text="{Binding PayeeName}"/>
+                    <Entry x:Name="enterAmountToPay"
+                       FontSize="16"
+                       Keyboard="Numeric"
+                       Placeholder="Enter amount"
+                           Text="{Binding Amount}"/>
+                    <Button x:Name="proceedToPay"
+                    Text="Pay"
+                    CornerRadius="20"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="#9273D4"
+                            Command="{Binding ProceedToPay}"/>
+                </StackLayout>
+            </Frame>
+
+            
+        
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

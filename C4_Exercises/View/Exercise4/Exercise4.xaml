@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C4_Exercises.View.Exercise4.Exercise4">
+
+    <NavigationPage.TitleView  >
+        <StackLayout >
+            <Label 
+                TextColor="White"
+                Text="Create Invoice"
+                HorizontalOptions="Center"
+                FontAttributes="Bold,Italic"
+                FontSize="24"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout BackgroundColor="#F7F7F7"
+                     Padding="15,10,15,15">
+            <Label x:Name="product"
+                   Text="Product"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                   FontSize="12"/>
+            <Border StrokeShape="RoundRectangle 10"
+                    Stroke="#BEBEBE"
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="10,0,10,0"
+                    Margin="0,5,0,0">
+                <Entry x:Name="enterProduct"
+                       TextColor="Black"
+                       FontSize="12"/>
+            </Border>
+
+            <StackLayout Margin="0,15,0,0" 
+                         Orientation="Horizontal"
+                         Spacing="5">
+                <VerticalStackLayout HorizontalOptions="FillAndExpand"
+                                     Spacing="2">
+                    <Label x:Name="purchaseDate"
+                            Text="Purchase Date"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Start"
+                            FontSize="12"/>
+
+                    <Border StrokeShape="RoundRectangle 10"
+                            Stroke="#BEBEBE"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10,0,10,0">
+                        <StackLayout Spacing="2"
+                                     Orientation="Horizontal">
+
+                            <Image Source="datepicker.png"
+                                   HeightRequest="20"
+                                   WidthRequest="20"/>
+                            <DatePicker x:Name="enterPurchaseDate"
+                                        TextColor="Black"
+                                        FontSize="12"
+                                        MinimumDate="01/01/2023"
+                                        MaximumDate="12/31/2023"
+                                        Format="dd/MM/yyy"
+                                        HorizontalOptions="FillAndExpand"
+                            />
+                        </StackLayout>
+                    </Border>
+                </VerticalStackLayout>
+                <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                    <Label x:Name="purchaseTime"
+                        Text="Purchase Time"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Start"
+                        FontSize="12"/>
+
+                    <Border StrokeShape="RoundRectangle 10"
+                            Stroke="#BEBEBE"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10,0,10,0">
+                        <StackLayout Spacing="2"
+                                     Orientation="Horizontal">
+
+                            <Image Source="timepicker.png"
+                                   HeightRequest="20"
+                                   WidthRequest="20"/>
+                            <TimePicker x:Name="enterPurchaseTime"
+                                        FontSize="12"
+                                        FontAttributes="Bold"
+                                        Format="hh:mm tt"
+                                        HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </StackLayout>
+            
+            <StackLayout Margin="0,10,0,0"
+                         Orientation="Horizontal">
+                <Label x:Name="premiumCustomer"
+                   Text="Is Premium Customer"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   Margin="0,5,0,0"
+                   FontSize="12"/>
+                <Switch x:Name="isPremiumCustomer"
+                        OnColor="#65A2A3"
+                        ThumbColor="DarkCyan"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Center"
+                        Toggled="IsPremiumCustomer_Toggled"/>
+            </StackLayout>
+            
+            <Label x:Name="customerDetails"
+                   Text="Customer Detail"
+                   TextColor="DarkGray"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,10,0,0"
+                   FontSize="12"/>
+            <Border StrokeShape="RoundRectangle 10"
+                    Stroke="#BEBEBE"
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="15"
+                    Margin="0,5,0,0">
+                <StackLayout>
+                    <Label x:Name="customerName"
+                           Text="Customer Name"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,5,0,0"
+                           FontSize="12"/>
+                    <Border StrokeShape="RoundRectangle 10"
+                            Stroke="#BEBEBE"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10,0,10,0"
+                            Margin="0,5,0,0">
+                        <Entry x:Name="enterCustomerName"
+                               TextColor="Black"
+                               FontSize="12"/>
+                    </Border>
+                    <Label x:Name="customerMobileNumber"
+                           Text="Mobile Number"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,5,0,0"
+                           FontSize="12"/>
+                    <Border StrokeShape="RoundRectangle 10"
+                            Stroke="#BEBEBE"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10,0,10,0"
+                            Margin="0,5,0,0">
+                        <Entry x:Name="enterCustomerMobileNumber"
+                               TextColor="Black"
+                               FontSize="12"
+                               Keyboard="Numeric"
+                               MaxLength="10"/>
+                    </Border>
+                    <Label x:Name="customerAddress"
+                           Text="Customer Address"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,5,0,0"
+                           FontSize="12"/>
+                    <Border StrokeShape="RoundRectangle 10"
+                            Stroke="#BEBEBE"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10,0,10,0"
+                            Margin="0,5,0,0">
+
+                        <Editor x:Name="enterCustomerAddress"
+                               TextColor="Black"
+                               FontSize="12"
+                               AutoSize="TextChanges"
+                               HeightRequest="100"
+                               HorizontalTextAlignment="Start"
+                               VerticalTextAlignment="Start">
+                        </Editor>
+
+                    </Border>
+                </StackLayout>
+            </Border>
+            
+            <Label x:Name="paymentDetails"
+                   Text="Payment Detail"
+                   TextColor="DarkGray"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,10,0,0"
+                   FontSize="12"/>
+            <Border StrokeShape="RoundRectangle 10"
+                    Stroke="#BEBEBE"
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="15"
+                    Margin="0,5,0,0">
+                <StackLayout>
+                    <Label x:Name="productQuantity"
+                           Text="Product Quantity"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,5,0,0"
+                           FontSize="12"/>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0,10,0,0">
+                        <Stepper
+                            x:Name="addMinusProduct"
+                            Increment="1"
+                            Minimum="1"
+                            Maximum="10"
+                            Value="1"
+                            HorizontalOptions="FillAndExpand"/>
+                        <Label x:Name="selectedProductQuantity"
+                               BindingContext="{x:Reference addMinusProduct }"
+                               Text="{Binding Value}"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               Margin="0,0,10,0"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <Label x:Name="amount"
+                           Text="Amount"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,10,0,0"
+                           FontSize="12"/>
+                    <Border StrokeShape="RoundRectangle 10"
+                            Stroke="#BEBEBE"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10,0,10,0"
+                            Margin="0,5,0,0">
+                        <Entry x:Name="enterAmount"
+                               TextColor="Black"
+                               FontSize="12"
+                               Keyboard="Numeric"/>
+                    </Border>
+                    <Label x:Name="tax"
+                           Text="Tax"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,10,0,0"
+                           FontSize="12"/>
+                    <Border StrokeShape="RoundRectangle 10"
+                            Stroke="#BEBEBE"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10,0,10,0"
+                            Margin="0,5,0,0">
+                        <Entry x:Name="enterTax"
+                               TextColor="Black"
+                               FontSize="12"
+                               Keyboard="Numeric"/>
+                    </Border>
+
+
+                </StackLayout>
+            </Border>
+
+            <Button x:Name="generateInvoice"
+                    Text="Generate Invoice"
+                    BackgroundColor="#65A2A3"
+                    HorizontalOptions="FillAndExpand"
+                    CornerRadius="10"
+                    Margin="0,30,0,30"
+                    Clicked="GenerateInvoice_Clicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

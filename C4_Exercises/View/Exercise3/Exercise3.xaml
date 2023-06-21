@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C4_Exercises.View.Exercse3.Exercise3"
+             Title="Welcome"
+             >
+    <ScrollView>
+        <StackLayout BackgroundColor="SkyBlue"
+                     Padding="15">
+            <Border StrokeShape="RoundRectangle 15"
+                    Stroke="#ffffff"
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="CenterAndExpand"
+                    Padding="20">
+                <StackLayout>
+                    <Border StrokeShape="RoundRectangle 60"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#9A61E8"
+                                              Offset="0.1" />
+                                <GradientStop Color="#61A9EB"
+                                              Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Image Source="startquiz.png"/>
+                    </Border>
+
+                    <Button x:Name="playButton"
+                            Padding="15"
+                            Margin="0,20,0,0"
+                            BackgroundColor="White"
+                            BorderColor="#9A61E8"
+                            BorderWidth="2"
+                            CornerRadius="30"
+                            Text="Play"
+                            TextColor="#9A61E8"
+                            FontSize="20"
+                            FontAttributes="Italic,Bold"
+                            Clicked="PlayButton_Clicked"/>
+
+
+                </StackLayout>
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

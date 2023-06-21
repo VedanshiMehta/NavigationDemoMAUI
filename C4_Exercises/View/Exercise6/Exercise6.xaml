@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             x:Class="C4_Exercises.View.Exercise6.Exercise6">
+    <ContentPage.BindingContext>
+        <viewModel:Exercise6ViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Padding="0,10,10,10">
+            <Label Text="Payment Method"
+                   TextColor="Black"
+                   FontSize="16"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+            <Image Source="woman.png"
+                   HeightRequest="40"
+                   WidthRequest="40"
+                   HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout Padding="15"
+                     Spacing="20">
+            <Label Text="Select your Payment Method."
+                   TextColor="Black"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalOptions="StartAndExpand"/>
+            <Label Text="Add a new credit/debit card"
+                   TextColor="Black"
+                   FontSize="14"
+                   HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <RadioButton x:Name="creditCard"
+                         Content="Credit Card"
+                         FontSize="18"
+                         IsChecked="{Binding IsCredit}"
+                         GroupName="PaymentMethod"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="CenterAndExpand"/>
+                <Image Source="creditcard.png"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <RadioButton x:Name="debitCard"
+                         Content="Debit Card"
+                         FontSize="18"
+                         GroupName="PaymentMethod"
+                         IsChecked="{Binding IsDebit}"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="CenterAndExpand"/>
+                <Image Source="debitcard.png"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <RadioButton x:Name="gPay"
+                         Content="G Pay"
+                         FontSize="18"
+                         IsChecked="{Binding IsGpay}"
+                         GroupName="PaymentMethod"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="CenterAndExpand"/>
+                <Border HorizontalOptions="EndAndExpand"
+                        Stroke="#000000"
+                        StrokeShape="RoundRectangle 5">
+                <Image Source="googlepay.png"
+                       HeightRequest="20"
+                       WidthRequest="50"
+                       Aspect="AspectFit"/>
+                </Border>
+            </StackLayout>
+            <Button x:Name="next"
+                    Text="Next"
+                    CornerRadius="20"
+                    VerticalOptions="EndAndExpand"
+                    Command="{Binding NextPage}"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

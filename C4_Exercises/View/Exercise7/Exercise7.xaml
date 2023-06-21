@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             x:Class="C4_Exercises.View.Exercise7.Exercise7">
+    <ContentPage.BindingContext>
+        <viewModel:RateMeViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout BackgroundColor="{Binding Color}"
+                     Padding="20"
+                     >
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="20">
+                <Label TextColor="#212121"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       Text="How was the food ?"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="FillAndExpand" />
+                
+                <Label TextColor="#212121"
+                       FontSize="20"
+                       Text="{Binding Rating}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="FillAndExpand" />
+                <Image Source="{Binding Image}"
+                       HeightRequest="160"
+                       WidthRequest="160"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       x:Name="faceImage"/>
+                <Slider x:Name="rateFood"
+                        Maximum="30"
+                        Minimum="1"
+                        Value="{Binding RateValue}"
+                        Margin="0,20,0,0"
+                        ValueChanged="RateFood_ValueChanged"    />
+                <Button x:Name="next"
+                        BackgroundColor="Black"
+                        Text="Next"
+                        Padding="15"
+                        CornerRadius="10"
+                        Margin="0,20,0,0"
+                        Clicked="Next_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

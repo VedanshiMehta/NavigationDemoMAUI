@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C4_Exercises.View.Exercise4.PrintInvoice"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel">
+    <ContentPage.BindingContext>
+        <viewModel:PrintInvoiceViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView  >
+        <StackLayout >
+            <Label 
+                TextColor="White"
+                Text="Print Invoice"
+                HorizontalOptions="Center"
+                FontAttributes="Bold,Italic"
+                FontSize="24"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout  BackgroundColor="#F7F7F7"
+                      Padding="15,10,15,15">
+            <Label x:Name="printProduct"
+                   Text="Product"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+            <Label x:Name="printProductName"
+                   Text="{Binding ProductName}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+            <StackLayout Margin="0,15,0,0" 
+                         Orientation="Horizontal"
+                         Spacing="5">
+                <VerticalStackLayout HorizontalOptions="FillAndExpand"
+                                     Spacing="2">
+                    <Label x:Name="purchaseDate"
+                            Text="Purchase Date"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Start"
+                            FontSize="14"/>
+                    <Label x:Name="printPurchaseDate"
+                           Text="{Binding PurchaseDate}"
+                           TextColor="Black"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Start"
+                           Margin="0,5,0,0"
+                           FontSize="14"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                    <Label x:Name="purchaseTime"
+                        Text="Purchase Time"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Start"
+                        FontSize="14"/>
+
+                    <Label x:Name="printPurchaseTime"
+                           Text="{Binding PurchaseTime}"
+                           TextColor="Black"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Start"
+                           Margin="0,5,0,0"
+                           FontSize="14"/>
+                </VerticalStackLayout>
+            </StackLayout>
+
+            <Label x:Name="printPremiumCustomer"
+                   Text="Is Premium Customer"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+            
+            <Label x:Name="printIsPremiumCustomer"
+                   Text="{Binding PremiumCustomer}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+            
+            <StackLayout Orientation="Horizontal"
+                         Spacing="2"
+                         Margin="0,30,0,0">
+                <Border HeightRequest="1"
+                        BackgroundColor="Black"
+                        Stroke="#000000"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,7,0,0"/>
+                <Label x:Name="printCustomerDetails"
+                   Text="Customer Detail"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,10,0,0"
+                   FontSize="14"/>
+                <Border HeightRequest="1"
+                        BackgroundColor="Black"
+                        Stroke="#000000"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,7,0,0"/>
+
+            </StackLayout>
+            
+            <Label x:Name="printCustomerName"
+                   Text="Customer Name"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,30,0,0"
+                   FontSize="14"/>
+            
+            <Label x:Name="printEnterCustomerName"
+                   Text="{Binding CustomerName}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+            
+            <Label x:Name="printCustomerMobileNumber"
+                   Text="Customer Mobile Number"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,10,0,0"
+                   FontSize="14"/>
+            <Label x:Name="printEnterCustomerMobileNumber"
+                   Text="{Binding CustomerPhoneNumber}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+            <Label x:Name="printCustomerAddress"
+                   Text="Address"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,10,0,0"
+                   FontSize="14"/>
+            <Label x:Name="printEnterCustomerAddress"
+                   Text="{Binding CustomerAddress}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+            <StackLayout Orientation="Horizontal"
+                         Spacing="2"
+                         Margin="0,30,0,0">
+                <Border HeightRequest="1"
+                        BackgroundColor="Black"
+                        Stroke="#000000"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,7,0,0"/>
+                <Label x:Name="printPaymentDetails"
+                   Text="Payment Details"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,10,0,0"
+                   FontSize="14"/>
+                <Border HeightRequest="1"
+                        BackgroundColor="Black"
+                        Stroke="#000000"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,7,0,0"/>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Margin="0,20,0,0">
+                <Label x:Name="printProductQuantity"
+                   Text="Product Quantity"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Start"
+                   FontSize="18"/>
+                <Label x:Name="printEnterProductQuantity"
+                   Text="{Binding ProudctQuantity}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="End"
+                   Margin="0,5,0,0"
+                   FontSize="18"/>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Margin="0,20,0,0">
+                <Label x:Name="printProductAmount"
+                   Text="Amount"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Start"
+                   FontSize="14"/>
+                <Label x:Name="printEnterProductAmount"
+                   Text="{Binding ProudctAmount}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="End"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Margin="0,20,0,0">
+                <Label x:Name="printProductTax"
+                   Text="Tax"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Start"
+                   FontSize="14"/>
+                <Label x:Name="printEnterProductTax"
+                   Text="{Binding ProuductTax}"
+                   TextColor="Black"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="End"
+                   Margin="0,5,0,0"
+                   FontSize="14"/>
+
+            </StackLayout>
+
+            <Button x:Name="Print"
+                    Text="Print"
+                    BackgroundColor="#65A2A3"
+                    HorizontalOptions="FillAndExpand"
+                    CornerRadius="10"
+                    Margin="0,30,0,0"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

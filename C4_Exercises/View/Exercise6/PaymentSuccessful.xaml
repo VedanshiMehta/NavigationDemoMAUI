@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C4_Exercises.View.Exercise6.PaymentSuccessful"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             BackgroundColor="#416DDF">
+    <ContentPage.BindingContext>
+        <viewModel:PaymentSuccessfullViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout Spacing="15"
+                             VerticalOptions="Center"
+                             Padding="15">
+            <Image x:Name="paymentSucess"
+                   Source="paymentsuccess.png"
+                   WidthRequest="80"
+                   HeightRequest="80"
+                   HorizontalOptions="Center"/>
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="5">
+
+                <Image x:Name="rupeesIcon"
+                       HeightRequest="15"
+                       WidthRequest="15"
+                       Source="rupee.png"/>
+                <Label x:Name="userEnteredAmount"
+                   Text="{Binding Amount}"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   TextColor="White"/>
+            </HorizontalStackLayout>
+            <Label x:Name="successfullMessage"
+                   Text="{Binding PaymentMethod}"
+                   FontAttributes="Bold"
+                   FontSize="22"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Fill"/>
+            <Button x:Name="gotIt"
+                    CornerRadius="20"
+                    Text="Got it"
+                    HorizontalOptions="Center"
+                    Padding="30,10,30,10"
+                    Margin="0,30,0,0"
+                    Clicked="GotIt_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

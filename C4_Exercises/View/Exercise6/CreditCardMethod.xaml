@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             x:Class="C4_Exercises.View.Exercise6.CreditCardMethod">
+    <ContentPage.BindingContext>
+        <viewModel:CreditCardViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Padding="0,10,10,10">
+            <Label Text="Credit Payment Method"
+                   TextColor="Black"
+                   FontSize="16"
+                   HorizontalOptions="Start"
+                   VerticalOptions="CenterAndExpand"/>
+            <Image Source="woman.png"
+                   HeightRequest="40"
+                   WidthRequest="40"
+                   HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout Spacing="20"
+                     Padding="20">
+
+            <Frame CornerRadius="10"
+                   Padding="25">
+                <Frame.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#DA6888"
+                          Offset="0.1" />
+                        <GradientStop Color="#F9031B"
+                          Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout Spacing="10">
+                    <Label x:Name="Name"
+                           Text="{Binding YourName}"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalTextAlignment="Start"
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="amount"
+                           Text="{Binding YourAmount}"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           HorizontalTextAlignment="Start"
+                           HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Border StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#000000"
+                    Padding="5"
+                    Margin="0,20,0,0">
+                <Entry x:Name="enetrName"
+                       TextColor="Black"
+                       FontSize="16"
+                       Text="{Binding Name}"/>
+            </Border>
+            <Border StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#000000"
+                    Padding="5"
+                    Margin="0,10,0,0">
+                <Entry x:Name="enterAmount"
+                       FontSize="16"
+                       Keyboard="Numeric"
+                       Text="{Binding Amount}"/>
+            </Border>
+
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="save"
+                       Text="Save your card infromation"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="14"
+                       HorizontalTextAlignment="Start"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                <Switch x:Name="saveCardInfromation"
+                        OnColor="#DA6888"
+                        ThumbColor="#F9031B"
+                        HorizontalOptions="EndAndExpand"
+                        IsToggled="{Binding IsToggleOn}"
+                        Toggled="SaveCardInfromation_Toggled"   />
+            </StackLayout>
+            <Button x:Name="pay"
+                    Text="Pay"
+                    CornerRadius="20"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="#F9031B"
+                    Command="{Binding NavigatNextPage}"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

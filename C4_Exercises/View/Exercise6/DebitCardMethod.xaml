@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             x:Class="C4_Exercises.View.Exercise6.DebitCardMethod">
+    <ContentPage.BindingContext>
+        <viewModel:DebitCardViewModel/>
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Padding="0,10,10,10">
+            <Label Text="Debit Payment Method"
+                   TextColor="Black"
+                   FontSize="16"
+                   HorizontalOptions="Start"
+                   VerticalOptions="CenterAndExpand"/>
+            <Image Source="woman.png"
+                   HeightRequest="40"
+                   WidthRequest="40"
+                   HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout Spacing="20"
+                     Padding="20">
+
+            <Frame CornerRadius="10"
+                   Padding="25">
+                <Frame.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FE9727"
+                          Offset="0.1" />
+                        <GradientStop Color="#FFEC3C"
+                          Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout Spacing="10">
+                    <Label x:Name="name"
+                           Text="{Binding YourName}"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalTextAlignment="Start"
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="account"
+                           Text="{Binding YourAccountNumber}"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           HorizontalTextAlignment="Start"
+                           HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="date"
+                           Text="{Binding YourDate}"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           HorizontalTextAlignment="Start"
+                           HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Border StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#000000"
+                    Padding="5"
+                    Margin="0,20,0,0">
+                <Entry x:Name="enterYourName"
+                       TextColor="Black"
+                       FontSize="16"
+                       Text="{Binding Name}"
+                       Placeholder="Enter your name"/>
+            </Border>
+            <Border StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#000000"
+                    Padding="5"
+                    Margin="0,10,0,0">
+                <Entry x:Name="enterAccountNumber"
+                       FontSize="16"
+                       Keyboard="Numeric"
+                       MaxLength="12"
+                       Text="{Binding AccountNumber}"
+                       Placeholder="Enter your account number"/>
+            </Border>
+            <Border StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#000000"
+                    Padding="5"
+                    Margin="0,10,0,0">
+                <Entry x:Name="enterAmountDebit"
+                       FontSize="16"
+                       Keyboard="Numeric"
+                       Text="{Binding Amount}"
+                       Placeholder="Enter amount"/>
+            </Border>
+            <StackLayout Margin="0,10,0,0"
+                         Orientation="Horizontal"
+                         Spacing="10">
+                <Border StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#000000"
+                    Padding="5"
+                        HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="enterYourCVV"
+                           TextColor="Black"
+                           FontSize="16"
+                           MaxLength="3"
+                           Keyboard="Numeric"
+                           Text="{Binding CVV}"
+                           Placeholder="CVV"/>
+                </Border>
+                <Border StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#000000"
+                    Padding="5"
+                        HorizontalOptions="FillAndExpand">
+                    <DatePicker x:Name="expriyDate"
+                                FontSize="16"
+                                Format="MM/dd/yyyy"
+                                MinimumDate="01/01/2023"
+                                Date="{Binding Date}"/>
+                </Border>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="saveYourInformation"
+                       Text="Save your card infromation"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="14"
+                       HorizontalTextAlignment="Start"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                <Switch x:Name="saveUserInfromation"
+                        OnColor="#FFEC3C"
+                        ThumbColor="#FE9727"
+                        HorizontalOptions="EndAndExpand"
+                        IsToggled="{Binding IsToggleOn}"
+                        Toggled="SaveUserInfromation_Toggled"/>
+            </StackLayout>
+            <Button x:Name="payUsingDebitCard"
+                    Text="Pay"
+                    CornerRadius="20"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="#FE9727"
+                    Command="{Binding PayUsingDebitCard}"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

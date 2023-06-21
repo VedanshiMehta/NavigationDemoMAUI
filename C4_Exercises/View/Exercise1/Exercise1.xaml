@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             x:Class="C4_Exercises.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#E2E2E2"
+             Padding="10">
+    <ContentPage.BindingContext>
+        <viewModel:TrainInformationViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <Border BackgroundColor="White"
+                StrokeShape="RoundRectangle 40"
+                Stroke="#ffffff">
+            
+        <StackLayout>
+
+                <Border BackgroundColor="White"
+                StrokeShape="RoundRectangle 40,40,0,0"
+                Stroke="#ffffff"
+                Padding="15,40,15,0">
+                    <StackLayout>
+                        <!--StackLayout User Profile-->
+                        <StackLayout Orientation="Horizontal">
+                            <VerticalStackLayout HorizontalOptions="FillAndExpand"
+                                         Spacing="5">
+                                <Label x:Name="userName"
+                           TextColor="#C4C4C4"
+                           Text="Hello, Faza!"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           HorizontalTextAlignment="Start"/>
+                                <Label x:Name="question"
+                           FontAttributes="Bold"
+                           Text="Where are you going?"
+                           TextColor="Black"
+                           FontSize="18"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           HorizontalTextAlignment="Start"/>
+                            </VerticalStackLayout>
+
+
+                            <Image Source="woman.png"
+                           Grid.Column="1"
+                           Grid.RowSpan="2"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"/>
+
+                        </StackLayout>
+
+                        <!--Border Enter Loacations-->
+                        <Border BackgroundColor="#F8F8F8"
+                        StrokeShape="RoundRectangle 30"
+                        Stroke="#F8F8F8"
+                        Padding="10,10,10,0"
+                        Margin="0,10,0,0">
+                            <!--StackLayout Enter Loacations-->
+                            <StackLayout Spacing="5">
+                                <!--AbsoluteLayout Loacations-->
+                                <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        HeightRequest="180">
+                                    <Border BackgroundColor="White"
+                                StrokeShape="RoundRectangle 20"
+                                Stroke="#ffffff"
+                                Padding="15"
+                                Margin="0,0,0,5"
+                                AbsoluteLayout.LayoutBounds="0,0,1,0.5"
+                                AbsoluteLayout.LayoutFlags="SizeProportional,YProportional">
+                                        <StackLayout>
+                                            <Label x:Name="fromStation"
+                                   Text="From Station"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                                   TextColor="#E2E2E2"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Start"/>
+                                            <Entry x:Name="enterYourStation"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                            Text="{Binding YourLocation}"
+                                           TextColor="Black"
+                                          FontSize="14"
+                                          FontAttributes="Bold"/>
+                                        </StackLayout>
+                                    </Border>
+
+                                    <Border BackgroundColor="White"
+                                    StrokeShape="RoundRectangle 20"
+                                    Stroke="#ffffff"
+                                    Padding="15"
+                                    Margin="0,5,0,0"
+                                    AbsoluteLayout.LayoutBounds="0,1,1,0.5"
+                                   AbsoluteLayout.LayoutFlags="SizeProportional,YProportional">
+                                        <StackLayout>
+                                            <Label x:Name="toStation"
+                                          Text="To Station"
+                                          FontAttributes="Bold"
+                                          FontSize="12"
+                                          TextColor="#E2E2E2"
+                                          HorizontalOptions="Fill"
+                                          HorizontalTextAlignment="Start"/>
+                                            <Entry x:Name="enterDestinantionStation"
+                                          HorizontalOptions="FillAndExpand"
+                                          HorizontalTextAlignment="Start"
+                                               Text="{Binding DestinationLocation}"
+                                          TextColor="Black"
+                                          FontSize="14"
+                                          FontAttributes="Bold"/>
+                                        </StackLayout>
+                                    </Border>
+                                    <ImageButton x:Name="swap"
+                                     Source="swap.png"
+                                     HeightRequest="50"
+                                     WidthRequest="50"
+                                     AbsoluteLayout.LayoutBounds="0.85,0.5"
+                                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                                     Command="{Binding SwapLocation}"/>
+
+                                </AbsoluteLayout>
+
+                                <!--StackLayout Select Dates-->
+
+                                <StackLayout Orientation="Horizontal" 
+                                     Spacing="5"
+                                     Margin="0,5,0,0">
+                                    <Border BackgroundColor="White"
+                                    StrokeShape="RoundRectangle 20"
+                                    Stroke="#ffffff"
+                                    Padding="15,15,15,10"
+                                    HorizontalOptions="FillAndExpand">
+                                        <StackLayout>
+                                            <Label x:Name="departureDate"
+                                          Text="Departure"
+                                          FontAttributes="Bold"
+                                          FontSize="12"
+                                          TextColor="#E2E2E2"
+                                          HorizontalOptions="Fill"
+                                          HorizontalTextAlignment="Start"/>
+                                            <DatePicker x:Name="selectDepartureDate"
+                                          HorizontalOptions="FillAndExpand"
+                                          TextColor="Black"
+                                          FontSize="14"
+                                          FontAttributes="Bold"
+                                          MinimumDate="01/01/2023"
+                                          Format="MMM dd, yyyy"/>
+                                        </StackLayout>
+                                    </Border>
+                                    <Border BackgroundColor="White"
+                                    StrokeShape="RoundRectangle 20"
+                                    Stroke="#ffffff"
+                                    Padding="15,15,15,10"
+                                    HorizontalOptions="FillAndExpand">
+                                        <StackLayout>
+                                            <Label x:Name="returnDate"
+                                          Text="Return"
+                                          FontAttributes="Bold"
+                                          FontSize="12"
+                                          TextColor="#E2E2E2"
+                                          HorizontalOptions="Fill"
+                                          HorizontalTextAlignment="Start"/>
+                                         <DatePicker x:Name="enterReturnDate"
+                                          HorizontalOptions="FillAndExpand"
+                                          TextColor="Black"
+                                          FontSize="14"
+                                          FontAttributes="Bold"
+                                          MinimumDate="01/01/2023"
+                                          Format="MMM dd, yyyy"/>
+                                        </StackLayout>
+                                    </Border>
+                                </StackLayout>
+                                <Button x:Name="searchTrain"
+                                Text="Search Train"
+                                CornerRadius="15"
+                                Padding="15"
+                                FontAttributes="Bold"
+                                BackgroundColor="#3F53EE"
+                                Margin="10"
+                                 Command="{Binding SearchTrain}"/>
+                            </StackLayout>
+
+                        </Border>
+
+                        <!--StackLayout  Set Ticket Details-->
+                        <StackLayout Orientation="Horizontal"
+                             Margin="0,5,0,0">
+                            <Label x:Name="upComingTicket"
+                           Text="Upcoming Ticket"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalOptions="StartAndExpand"/>
+                            <Label x:Name="seeAll"
+                           Text="See All"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#6369B2"
+                           HorizontalOptions="EndAndExpand"/>
+
+                        </StackLayout>
+
+                        <!--Border Set Ticket Details-->
+                        <Border BackgroundColor="#F8F8F8"
+                        StrokeShape="RoundRectangle 30"
+                        Stroke="#F8F8F8"
+                        Padding="10"
+                        Margin="0,10,0,0">
+                            <!--StackLayout  Set Ticket Details-->
+                            <StackLayout Spacing="5">
+                                <!--StackLayout  Time and Date-->
+                                <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand"
+                                     Margin="0,0,0,10">
+
+                                    <!--Border Date-->
+                                    <Border StrokeShape="RoundRectangle 20"
+                                    HorizontalOptions="StartAndExpand"
+                                    BackgroundColor="#E4E6FA"
+                                    Stroke="#E4E6FA"
+                                    Padding="15,10,15,10">
+                                        <StackLayout Orientation="Horizontal"
+                                             Spacing="10">
+                                            <Image Source="calendar.png"
+                                           x:Name="dateImage"
+                                           />
+                                            <Label x:Name="selectedDate"
+                                           Text="Nov,24 2022"
+                                           TextColor="#777DB7"
+                                           FontSize="12"
+                                           FontAttributes="Bold"/>
+                                        </StackLayout>
+                                    </Border>
+                                    <!--Border Time-->
+                                    <Border StrokeShape="RoundRectangle 20"
+                                    HorizontalOptions="EndAndExpand"
+                                    BackgroundColor="#E4E6FA"
+                                    Stroke="#E4E6FA"
+                                    Padding="15,10,15,10">
+                                        <StackLayout Orientation="Horizontal"
+                                             Spacing="10">
+                                            <Image Source="clock.png"
+                                           x:Name="clockImage"
+                                           />
+                                            <Label x:Name="selectedTime"
+                                           Text="20h 5min"
+                                           TextColor="#777DB7"
+                                           FontSize="12"
+                                           FontAttributes="Bold"/>
+                                        </StackLayout>
+                                    </Border>
+                                </StackLayout>
+
+                                <!--Line-->
+                                <Line Stroke="#C8C8C8"
+                            StrokeThickness="5"
+                            X2="800"
+                            Y2="1" 
+                            StrokeDashArray="1,1"/>
+                                <!--StackLayout Dteails-->
+                                <StackLayout Orientation="Horizontal"
+                                     Margin="0,10,0,0">
+                                    <Label x:Name="location1"
+                                       Text="{Binding Location1}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Start"
+                                                HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Fill"/>
+                                    <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand">
+
+                                        <Border HeightRequest="10"
+                                        WidthRequest="10"
+                                        Stroke="#3D54ED" 
+                                        BackgroundColor="#3D54ED"
+                                        StrokeShape="RoundRectangle 5"
+                                        AbsoluteLayout.LayoutBounds="0,0.5"
+                                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                                        <Border HeightRequest="5"
+                                        Stroke="#3D54ED" 
+                                        BackgroundColor="#3D54ED"
+                                        AbsoluteLayout.LayoutBounds="0,1,1,1"
+                                        AbsoluteLayout.LayoutFlags="SizeProportional,YProportional,XProportional"/>
+
+                                        <Border HeightRequest="10"
+                                        WidthRequest="10"
+                                        Stroke="#3D54ED" 
+                                        BackgroundColor="#3D54ED"
+                                        StrokeShape="RoundRectangle 5"
+                                        AbsoluteLayout.LayoutBounds="1,0.5"
+                                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                                        <Image x:Name="imageTrain"
+                                       Source="train.png"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       AbsoluteLayout.LayoutBounds="0.5,0.5"
+                                       AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+                                    </AbsoluteLayout>
+                                    
+                                        <Label x:Name="location2"
+                                       Text="{Binding Location2}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="End"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Fill"/>
+                                      
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Border>
+                    </StackLayout>
+                </Border>
+                
+                <!--Bottom Navigation-->
+                <Border StrokeShape="RoundRectangle 0,0,40,40"
+                        Stroke="#F8F8F8"
+                        BackgroundColor="#F8F8F8"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="EndAndExpand"
+                        Padding="20">
+                <StackLayout Orientation="Horizontal"
+                             Padding="10,0,0,10"
+                             Spacing="5">
+                        <VerticalStackLayout Spacing="2"
+                                             HorizontalOptions="FillAndExpand">
+                            <Image Source="home.png"
+                                   HeightRequest="25"
+                                   WidthRequest="25"/>
+                            <Border HeightRequest="8"
+                                        WidthRequest="8"
+                                        Stroke="#8B8DAA" 
+                                        BackgroundColor="#8B8DAA"
+                                        StrokeShape="RoundRectangle 5"
+                                        AbsoluteLayout.LayoutBounds="0,0.5"
+                                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                        </VerticalStackLayout>
+                        <Image Source="bell.png"
+                               HeightRequest="25"
+                               WidthRequest="25"
+                               HorizontalOptions="FillAndExpand"/>
+                        <Image Source="ticket.png"
+                               HeightRequest="25"
+                               WidthRequest="25"
+                               HorizontalOptions="FillAndExpand"/>
+                        <Image Source="person.png"
+                               HeightRequest="25"
+                               WidthRequest="25"
+                               HorizontalOptions="FillAndExpand"/>
+
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </Border>
+    </ScrollView>
+
+</ContentPage>

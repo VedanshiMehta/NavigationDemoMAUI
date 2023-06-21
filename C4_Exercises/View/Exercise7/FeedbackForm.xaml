@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewModel="clr-namespace:C4_Exercises.ViewModel"
+             x:Class="C4_Exercises.View.Exercise7.FeedbackForm">
+    <ContentPage.BindingContext>
+        <viewModel:FeedbackViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout BackgroundColor="LightGoldenrodYellow"
+                     Padding="20"
+                     >
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="20">
+                <Label TextColor="#212121"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       Text="Your Feedback"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="FillAndExpand" />
+
+                <Label TextColor="{Binding TextColor}"
+                       FontSize="20"
+                       Text="{Binding Rating}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="FillAndExpand" />
+                <Image Source="{Binding FeedbackImage}"
+                       HeightRequest="160"
+                       WidthRequest="160"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
